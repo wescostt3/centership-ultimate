@@ -1,0 +1,2416 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CenterShip | Remoção técnica e desmontagem industrial no Rio de Janeiro</title>
+  <meta name="description" content="CenterShip atua com desmontagem de elevadores, remoção industrial, estruturas metálicas, materiais ferrosos e limpeza técnica no Rio de Janeiro.">
+  <style>
+    :root {
+      --bg:      oklch(17% 0.008 95);
+      --surface: oklch(23% 0.01 95);
+      --fg:      oklch(96% 0.006 85);
+      --muted:   oklch(74% 0.012 92);
+      --border:  oklch(35% 0.012 95);
+      --accent:  oklch(76% 0.15 78);
+
+      --font-display: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      --font-body:    'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      --font-mono:    'JetBrains Mono', 'IBM Plex Mono', ui-monospace, Menlo, monospace;
+
+      --max: 1200px;
+      --radius: 8px;
+      --gap: 24px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--bg);
+      color: var(--fg);
+      font-family: var(--font-body);
+    }
+
+    body {
+      margin: 0;
+      --scroll-progress: 0;
+      --sequence-progress: 0;
+      --hero-x: 50%;
+      --hero-y: 38%;
+      background:
+        linear-gradient(90deg, color-mix(in oklch, var(--border) 18%, transparent) 1px, transparent 1px),
+        linear-gradient(180deg, color-mix(in oklch, var(--border) 14%, transparent) 1px, transparent 1px),
+        var(--bg);
+      background-position:
+        calc(var(--scroll-progress) * -120px) calc(var(--scroll-progress) * 80px),
+        calc(var(--scroll-progress) * 70px) calc(var(--scroll-progress) * -90px),
+        0 0;
+      background-size: 80px 80px;
+      color: var(--fg);
+      line-height: 1.5;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      object-fit: cover;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    p { margin: 0; color: var(--muted); }
+
+    .site-shell { overflow: hidden; }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      border-bottom: 1px solid color-mix(in oklch, var(--border) 78%, transparent);
+      background: color-mix(in oklch, var(--bg) 88%, black 12%);
+      backdrop-filter: blur(16px);
+      transform: translateY(calc(var(--scroll-progress) * -2px));
+    }
+
+    .nav-inner {
+      width: min(var(--max), calc(100% - 32px));
+      min-height: 72px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand-mark {
+      display: flex;
+      align-items: center;
+      min-width: max-content;
+      padding: 0;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none;
+    }
+
+    .brand-logo-image {
+      display: block;
+      width: clamp(150px, 15vw, 196px);
+      height: 48px;
+      object-fit: contain;
+      filter: drop-shadow(0 12px 26px rgb(0 0 0 / 0.38));
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      color: var(--muted);
+      font-size: 13px;
+      letter-spacing: 0.02em;
+    }
+
+    .nav-links a:hover { color: var(--fg); }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 10px 16px;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      font-weight: 600;
+      font-size: 13px;
+      letter-spacing: 0.02em;
+      transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+    }
+
+    .button:hover {
+      transform: translateY(-1px);
+      border-color: color-mix(in oklch, var(--accent) 55%, var(--border));
+    }
+
+    .button.primary {
+      background: var(--accent);
+        color: oklch(16% 0.015 78);
+      border-color: var(--accent);
+    }
+
+    .button.secondary {
+      background: color-mix(in oklch, var(--surface) 78%, transparent);
+      color: var(--fg);
+    }
+
+    .section {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+      padding: 88px 0;
+    }
+
+    .hero {
+      position: relative;
+      min-height: calc(100vh + 4000px);
+      isolation: isolate;
+    }
+
+    .hero-stage {
+      position: sticky;
+      top: 72px;
+      height: calc(100vh - 72px);
+      min-height: 620px;
+      overflow: hidden;
+      background: black;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      width: fit-content;
+      align-items: center;
+      gap: 9px;
+      color: var(--accent);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      line-height: 1.5;
+    }
+
+    .eyebrow::before {
+      content: "";
+      inline-size: 28px;
+      block-size: 1px;
+      background: currentColor;
+    }
+
+    h1, h2, h3 {
+      margin: 0;
+      font-family: var(--font-display);
+      color: var(--fg);
+    }
+
+    h1 {
+      max-width: 12ch;
+      margin-top: 22px;
+      font-size: clamp(54px, 8vw, 112px);
+      line-height: 0.92;
+      letter-spacing: -0.045em;
+      font-weight: 650;
+    }
+
+    .hero-deck {
+      max-width: 760px;
+      margin-top: 28px;
+      font-size: clamp(19px, 2vw, 26px);
+      line-height: 1.35;
+      color: color-mix(in oklch, var(--fg) 86%, var(--muted));
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 34px;
+    }
+
+    .hero-meta {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--border);
+      margin-top: 52px;
+      max-width: 850px;
+    }
+
+    .metric {
+      padding: 18px;
+      background: color-mix(in oklch, var(--surface) 86%, transparent);
+    }
+
+    .metric strong {
+      display: block;
+      color: var(--fg);
+      font-size: 24px;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .metric span {
+      display: block;
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .hero-media {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      background: black;
+      isolation: isolate;
+    }
+
+    .hero-sequence-canvas,
+    .hero-media img,
+    .hero-video-source {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .hero-video-source {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .hero-sequence-canvas {
+      z-index: 0;
+      opacity: 0;
+      transform: scale(1.01);
+      transition: opacity 480ms ease;
+    }
+
+    .sequence-ready .hero-sequence-canvas {
+      opacity: 1;
+    }
+
+    .hero-media img {
+      filter: saturate(0.85) contrast(1.08);
+      transform: scale(1.035);
+      animation: heroDrift 16s ease-in-out infinite alternate;
+    }
+
+    .sequence-ready .hero-fallback {
+      opacity: 0;
+    }
+
+    .hero-media::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at var(--hero-x) var(--hero-y), color-mix(in oklch, var(--accent) 18%, transparent), transparent 22%),
+        linear-gradient(180deg, color-mix(in oklch, black 24%, transparent), transparent 28%, color-mix(in oklch, black 78%, transparent)),
+        linear-gradient(90deg, color-mix(in oklch, black 56%, transparent), transparent 46%, color-mix(in oklch, black 44%, transparent));
+      z-index: 1;
+      pointer-events: none;
+      transition: background 180ms ease;
+    }
+
+    .hero-media::before {
+      content: "";
+      position: absolute;
+      inset: -20%;
+      z-index: 2;
+      background:
+        linear-gradient(105deg, transparent 0 42%, color-mix(in oklch, var(--accent) 52%, transparent) 48%, transparent 54%),
+        repeating-linear-gradient(90deg, transparent 0 58px, color-mix(in oklch, var(--fg) 9%, transparent) 59px 60px);
+      mix-blend-mode: screen;
+      opacity: 0.28;
+      transform: translateX(-42%) rotate(0.001deg);
+      animation: industrialScan 5.8s cubic-bezier(0.55, 0, 0.25, 1) infinite;
+      pointer-events: none;
+    }
+
+    .hero-loop {
+      position: absolute;
+      inset: 26px;
+      z-index: 3;
+      pointer-events: none;
+    }
+
+    .hero-loop .rail {
+      position: absolute;
+      inset-inline: 6%;
+      inset-block-start: 16%;
+      height: 1px;
+      background: color-mix(in oklch, var(--accent) 62%, transparent);
+      transform-origin: center;
+      animation: railPulse 3.6s ease-in-out infinite;
+    }
+
+    .hero-loop .rail::after {
+      content: "";
+      position: absolute;
+      inset-block-start: -4px;
+      inline-size: 9px;
+      block-size: 9px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 18px color-mix(in oklch, var(--accent) 70%, transparent);
+      animation: railMarker 3.6s linear infinite;
+    }
+
+    .hero-loop .ticker {
+      position: absolute;
+      inset-inline-start: 0;
+      inset-block-end: 72px;
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      padding: 9px 11px;
+      border: 1px solid color-mix(in oklch, var(--fg) 15%, transparent);
+      border-radius: 6px;
+      background: color-mix(in oklch, var(--bg) 72%, transparent);
+      color: var(--fg);
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      backdrop-filter: blur(10px);
+      animation: tickerBreath 4s ease-in-out infinite;
+    }
+
+    .hero-loop .ticker i {
+      inline-size: 8px;
+      block-size: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 14px color-mix(in oklch, var(--accent) 80%, transparent);
+      animation: statusBlink 1.15s steps(2, end) infinite;
+    }
+
+    .hero-signal-card {
+      position: absolute;
+      inset-inline-end: 28px;
+      inset-block-start: 28px;
+      z-index: 4;
+      display: grid;
+      gap: 10px;
+      width: min(280px, calc(100% - 56px));
+      padding: 14px;
+      border: 1px solid color-mix(in oklch, var(--fg) 14%, transparent);
+      border-radius: 14px;
+      background: color-mix(in oklch, var(--bg) 64%, transparent);
+      color: var(--fg);
+      backdrop-filter: blur(10px);
+      pointer-events: none;
+    }
+
+    .hero-signal-card span {
+      color: var(--accent);
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .hero-signal-card strong {
+      color: var(--fg);
+      font-size: 18px;
+      line-height: 1.12;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-signal-card .bar {
+      position: relative;
+      height: 2px;
+      overflow: hidden;
+      background: color-mix(in oklch, var(--fg) 18%, transparent);
+    }
+
+    .hero-signal-card .bar::after {
+      content: "";
+      position: absolute;
+      inset-block: 0;
+      inset-inline-start: 0;
+      inline-size: calc(var(--sequence-progress) * 100%);
+      background: var(--accent);
+      box-shadow: 0 0 18px color-mix(in oklch, var(--accent) 80%, transparent);
+    }
+
+    .hero-brand-plate {
+      position: absolute;
+      inset-inline-start: 28px;
+      inset-block-end: 28px;
+      z-index: 5;
+      max-width: min(560px, calc(100% - 56px));
+      pointer-events: none;
+    }
+
+    .hero-brand-plate .eyebrow {
+      color: color-mix(in oklch, var(--fg) 82%, var(--accent));
+    }
+
+    .hero-brand-plate h1 {
+      margin-top: 18px;
+      max-width: 10ch;
+      color: var(--fg);
+      text-shadow: 0 18px 56px rgb(0 0 0 / 0.55);
+    }
+
+    .hero-brand-plate p {
+      margin-top: 18px;
+      max-width: 48ch;
+      color: color-mix(in oklch, var(--fg) 78%, var(--muted));
+      font-size: 16px;
+    }
+
+    .hero-hotspots {
+      position: absolute;
+      inset: 0;
+      z-index: 6;
+      pointer-events: none;
+    }
+
+    .hero-hotspot {
+      position: absolute;
+      inline-size: min(320px, calc(100vw - 48px));
+      padding: 16px;
+      border: 1px solid color-mix(in oklch, var(--fg) 18%, transparent);
+      border-radius: 14px;
+      background: color-mix(in oklch, var(--surface) 34%, transparent);
+      color: var(--fg);
+      box-shadow: 0 22px 70px rgb(0 0 0 / 0.28);
+      backdrop-filter: blur(18px);
+      opacity: 0.3;
+      transform: translateY(14px) scale(0.98);
+      transition: opacity 240ms ease, transform 240ms ease, border-color 240ms ease, background 240ms ease;
+      pointer-events: auto;
+    }
+
+    .hero-hotspot::before {
+      content: "";
+      position: absolute;
+      inset-inline-start: 16px;
+      inset-block-start: -32px;
+      inline-size: 1px;
+      block-size: 32px;
+      background: color-mix(in oklch, var(--accent) 72%, transparent);
+      opacity: 0.72;
+    }
+
+    .hero-hotspot::after {
+      content: "";
+      position: absolute;
+      inset-inline-start: 12px;
+      inset-block-start: -40px;
+      inline-size: 9px;
+      block-size: 9px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 20px color-mix(in oklch, var(--accent) 86%, transparent);
+    }
+
+    .hero-hotspot:hover,
+    .hero-hotspot:focus-within {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      border-color: color-mix(in oklch, var(--accent) 42%, var(--border));
+      background: color-mix(in oklch, var(--surface) 54%, transparent);
+    }
+
+    .hero-hotspot strong {
+      display: block;
+      color: var(--fg);
+      font-size: 15px;
+      letter-spacing: -0.01em;
+      opacity: 0;
+      transform: translateY(4px);
+      transition: opacity 220ms ease, transform 220ms ease;
+    }
+
+    .hero-hotspot span {
+      display: block;
+      margin-top: 8px;
+      color: color-mix(in oklch, var(--fg) 74%, var(--muted));
+      font-size: 13px;
+      line-height: 1.45;
+      opacity: 0;
+      transform: translateY(4px);
+      transition: opacity 220ms ease 40ms, transform 220ms ease 40ms;
+    }
+
+    .hero-hotspot:hover strong,
+    .hero-hotspot:focus-within strong,
+    .hero-hotspot:hover span,
+    .hero-hotspot:focus-within span {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .hero-hotspot.one {
+      inset-inline-end: 8vw;
+      inset-block-start: clamp(250px, 34vh, 390px);
+    }
+
+    .hero-hotspot.two {
+      inset-inline-end: 16vw;
+      inset-block-end: 24vh;
+    }
+
+    .hero-hotspot.three {
+      inset-inline-start: 45vw;
+      inset-block-start: 46vh;
+    }
+
+    .hero-scroll-cue {
+      position: absolute;
+      inset-inline-end: 28px;
+      inset-block-end: 28px;
+      z-index: 7;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: color-mix(in oklch, var(--fg) 72%, var(--muted));
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      pointer-events: none;
+    }
+
+    .hero-scroll-cue i {
+      position: relative;
+      display: block;
+      inline-size: 44px;
+      block-size: 1px;
+      background: color-mix(in oklch, var(--fg) 24%, transparent);
+      overflow: hidden;
+    }
+
+    .hero-scroll-cue i::after {
+      content: "";
+      position: absolute;
+      inset-block: 0;
+      inset-inline-start: 0;
+      inline-size: calc(var(--sequence-progress) * 100%);
+      background: var(--accent);
+    }
+
+    .hero-info {
+      padding-top: 72px;
+    }
+
+    .hero-info-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(320px, 0.7fr);
+      gap: 48px;
+      align-items: end;
+    }
+
+    .hero-info h2 {
+      max-width: 11ch;
+      font-size: clamp(46px, 7vw, 92px);
+      line-height: 0.94;
+      letter-spacing: -0.045em;
+      font-weight: 650;
+    }
+
+    .hero-info .hero-deck {
+      margin-top: 22px;
+      max-width: 62ch;
+    }
+
+    .operation-lab {
+      position: relative;
+    }
+
+    .operation-lab::before {
+      content: "";
+      position: absolute;
+      inset-inline: calc((100vw - min(var(--max), calc(100vw - 32px))) / -2);
+      inset-block: 0;
+      z-index: -1;
+      background:
+        radial-gradient(circle at 16% 26%, color-mix(in oklch, var(--accent) 14%, transparent), transparent 28%),
+        linear-gradient(180deg, color-mix(in oklch, var(--surface) 34%, transparent), transparent 72%);
+      pointer-events: none;
+    }
+
+    .operation-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(330px, 0.62fr);
+      gap: var(--gap);
+      align-items: stretch;
+      margin-top: 34px;
+    }
+
+    .video-panel,
+    .proposal-panel,
+    .founder-panel {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: color-mix(in oklch, var(--surface) 88%, transparent);
+      isolation: isolate;
+    }
+
+    .video-panel {
+      min-height: 620px;
+    }
+
+    .video-panel video {
+      width: 100%;
+      height: 100%;
+      min-height: 620px;
+      object-fit: cover;
+      filter: saturate(0.78) contrast(1.08) brightness(0.78);
+    }
+
+    .video-panel::after,
+    .proposal-panel::after,
+    .founder-panel::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background:
+        linear-gradient(180deg, transparent 36%, color-mix(in oklch, black 72%, transparent)),
+        radial-gradient(circle at 20% 20%, color-mix(in oklch, var(--accent) 16%, transparent), transparent 32%);
+      pointer-events: none;
+    }
+
+    .video-overlay,
+    .proposal-overlay,
+    .founder-copy {
+      position: absolute;
+      z-index: 2;
+      inset-inline: 18px;
+      inset-block-end: 18px;
+      display: grid;
+      gap: 14px;
+    }
+
+    .video-overlay {
+      max-width: 620px;
+      padding: 18px;
+      border: 1px solid color-mix(in oklch, var(--fg) 15%, transparent);
+      border-radius: 14px;
+      background: color-mix(in oklch, var(--bg) 66%, transparent);
+      backdrop-filter: blur(16px);
+    }
+
+    .video-overlay h3,
+    .proposal-overlay h3,
+    .founder-copy h3 {
+      font-size: clamp(24px, 3vw, 38px);
+      line-height: 1.02;
+      letter-spacing: -0.035em;
+    }
+
+    .service-chip-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .service-chip {
+      min-height: 96px;
+      padding: 13px;
+      border: 1px solid color-mix(in oklch, var(--fg) 12%, transparent);
+      border-radius: 10px;
+      background: color-mix(in oklch, var(--bg) 42%, transparent);
+      color: var(--fg);
+    }
+
+    .service-chip strong {
+      display: block;
+      font-size: 14px;
+      letter-spacing: -0.01em;
+    }
+
+    .service-chip span {
+      display: block;
+      margin-top: 7px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.42;
+    }
+
+    .proposal-panel {
+      min-height: 620px;
+      display: grid;
+      align-content: end;
+      padding: 18px;
+    }
+
+    .proposal-panel .proposal-reference {
+      position: absolute;
+      inset: -18px;
+      width: calc(100% + 36px);
+      height: calc(100% + 36px);
+      object-fit: cover;
+      object-position: 54% 48%;
+      filter: blur(6px) saturate(0.45) contrast(1.08) brightness(0.44);
+      transform: scale(1.06);
+      opacity: 0.5;
+    }
+
+    .proposal-card {
+      position: relative;
+      z-index: 2;
+      min-height: 410px;
+      padding: 22px;
+      border: 1px solid color-mix(in oklch, var(--fg) 16%, transparent);
+      border-radius: 14px;
+      background:
+        linear-gradient(135deg, color-mix(in oklch, var(--surface) 78%, transparent), color-mix(in oklch, var(--bg) 70%, transparent)),
+        color-mix(in oklch, var(--surface) 92%, transparent);
+      backdrop-filter: blur(18px);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .proposal-logo {
+      width: 180px;
+      height: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 10px 24px rgb(0 0 0 / 0.35));
+    }
+
+    .proposal-lines {
+      display: grid;
+      gap: 9px;
+      margin-top: 24px;
+    }
+
+    .proposal-lines i {
+      display: block;
+      height: 8px;
+      border-radius: 999px;
+      background: color-mix(in oklch, var(--fg) 18%, transparent);
+    }
+
+    .proposal-lines i:nth-child(2) { width: 72%; }
+    .proposal-lines i:nth-child(3) { width: 46%; }
+
+    .proposal-specs {
+      display: grid;
+      gap: 1px;
+      overflow: hidden;
+      border: 1px solid color-mix(in oklch, var(--fg) 12%, transparent);
+      border-radius: 10px;
+      background: color-mix(in oklch, var(--fg) 12%, transparent);
+    }
+
+    .proposal-specs span {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 10px 12px;
+      background: color-mix(in oklch, var(--bg) 68%, transparent);
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .proposal-specs b {
+      color: var(--fg);
+      font-weight: 600;
+    }
+
+    .operation-tiles {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1px;
+      margin-top: var(--gap);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--border);
+    }
+
+    .operation-tiles article {
+      min-height: 170px;
+      padding: 20px;
+      background: color-mix(in oklch, var(--surface) 88%, transparent);
+    }
+
+    .operation-tiles h3 {
+      font-size: 20px;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+    }
+
+    .operation-tiles p {
+      margin-top: 12px;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .media-label {
+      position: absolute;
+      inset-inline: 18px;
+      inset-block-end: 18px;
+      z-index: 4;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: end;
+      gap: 18px;
+      color: var(--fg);
+    }
+
+    .media-label p {
+      max-width: 34ch;
+      color: color-mix(in oklch, var(--fg) 78%, var(--muted));
+      font-size: 14px;
+    }
+
+    .media-label span {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      text-align: end;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(280px, 0.55fr);
+      gap: 48px;
+      align-items: end;
+      margin-bottom: 34px;
+    }
+
+    .section-head h2 {
+      margin-top: 16px;
+      font-size: clamp(36px, 5vw, 68px);
+      line-height: 1;
+      letter-spacing: -0.035em;
+      font-weight: 620;
+    }
+
+    .section-head p {
+      font-size: 17px;
+      line-height: 1.55;
+      max-width: 55ch;
+    }
+
+    .grid {
+      display: grid;
+      gap: var(--gap);
+    }
+
+    .grid.cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .grid.cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid.cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+    .card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: color-mix(in oklch, var(--surface) 84%, transparent);
+      padding: 22px;
+      transition: transform 220ms ease, border-color 220ms ease, background 220ms ease;
+    }
+
+    .card.tight { padding: 18px; }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: color-mix(in oklch, var(--accent) 44%, var(--border));
+      background: color-mix(in oklch, var(--surface) 92%, var(--accent) 3%);
+    }
+
+    .js .card.reveal.is-visible:hover {
+      transform: translateY(-4px);
+    }
+
+    .card h3 {
+      font-size: 22px;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      font-weight: 620;
+    }
+
+    .card p {
+      margin-top: 14px;
+      font-size: 15px;
+      line-height: 1.58;
+    }
+
+    .mono-label {
+      display: block;
+      margin-bottom: 16px;
+      color: var(--accent);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .brand-panel {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--border);
+    }
+
+    .brand-panel > article {
+      background: color-mix(in oklch, var(--surface) 90%, transparent);
+      padding: 32px;
+      min-height: 250px;
+    }
+
+    .brand-panel .wide {
+      grid-column: span 2;
+      min-height: 0;
+    }
+
+    .values {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+
+    .value {
+      min-height: 150px;
+      padding: 18px;
+      background: color-mix(in oklch, var(--surface) 88%, transparent);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .value strong {
+      color: var(--fg);
+      font-size: 18px;
+      letter-spacing: -0.01em;
+    }
+
+    .value span {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .service-list {
+      display: grid;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--border);
+      gap: 1px;
+    }
+
+    .service-row {
+      display: grid;
+      grid-template-columns: 110px 1fr 0.7fr;
+      gap: 24px;
+      padding: 22px;
+      background: color-mix(in oklch, var(--surface) 90%, transparent);
+      align-items: start;
+    }
+
+    .service-row .num {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+    }
+
+    .service-row h3 { font-size: 24px; }
+
+    .service-row p { margin: 0; font-size: 15px; }
+
+    .photo-strip {
+      display: grid;
+      grid-template-columns: 1.3fr 0.7fr;
+      gap: var(--gap);
+      align-items: stretch;
+    }
+
+    .photo-card {
+      min-height: 460px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      position: relative;
+      background: var(--surface);
+    }
+
+    .photo-card.small { min-height: 218px; }
+
+    .photo-card img {
+      width: 100%;
+      height: 100%;
+      filter: saturate(0.82) contrast(1.06);
+    }
+
+    .caption {
+      position: absolute;
+      inset-inline: 14px;
+      inset-block-end: 14px;
+      padding: 10px 12px;
+      border: 1px solid color-mix(in oklch, var(--fg) 18%, transparent);
+      border-radius: 6px;
+      background: color-mix(in oklch, var(--bg) 78%, transparent);
+      color: var(--fg);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.04em;
+      backdrop-filter: blur(10px);
+    }
+
+    .process {
+      counter-reset: process;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--border);
+    }
+
+    .process article {
+      counter-increment: process;
+      min-height: 270px;
+      padding: 22px;
+      background: color-mix(in oklch, var(--surface) 88%, transparent);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .process article::before {
+      content: "0" counter(process);
+      font-family: var(--font-mono);
+      color: var(--accent);
+      font-size: 12px;
+      letter-spacing: 0.08em;
+    }
+
+    .process h3 { font-size: 22px; }
+
+    .quote-band {
+      margin: 34px 0 0;
+      padding: 36px;
+      border-inline-start: 2px solid var(--accent);
+      border-block: 1px solid var(--border);
+      background: color-mix(in oklch, var(--surface) 70%, transparent);
+    }
+
+    .quote-band p {
+      max-width: 900px;
+      color: var(--fg);
+      font-size: clamp(24px, 3.4vw, 42px);
+      line-height: 1.12;
+      letter-spacing: -0.03em;
+    }
+
+    .materials {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: var(--gap);
+    }
+
+    .mockup {
+      min-height: 620px;
+      padding: 28px;
+      background: oklch(94% 0.006 90);
+      color: oklch(17% 0.008 95);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .mockup .topline {
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+      gap: 20px;
+    }
+
+    .mockup .cs {
+      font-weight: 750;
+      font-size: 24px;
+      letter-spacing: -0.02em;
+    }
+
+    .mockup .doc-title {
+      max-width: 14ch;
+      font-size: 54px;
+      line-height: 0.95;
+      letter-spacing: -0.045em;
+      font-weight: 650;
+    }
+
+    .mockup-lines {
+      display: grid;
+      gap: 10px;
+    }
+
+    .mockup-lines span {
+      display: block;
+      height: 10px;
+      background: color-mix(in oklch, oklch(17% 0.008 95) 22%, transparent);
+      border-radius: 999px;
+    }
+
+    .mockup-lines span:nth-child(2) { width: 78%; }
+    .mockup-lines span:nth-child(3) { width: 46%; }
+
+    .strategy-list {
+      display: grid;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+
+    .strategy-list article {
+      padding: 22px;
+      background: color-mix(in oklch, var(--surface) 90%, transparent);
+      display: grid;
+      grid-template-columns: 0.45fr 1fr;
+      gap: 24px;
+    }
+
+    .strategy-list h3 {
+      font-size: 20px;
+    }
+
+    .visual-suite {
+      position: relative;
+    }
+
+    .visual-showcase {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(300px, 0.85fr);
+      gap: var(--gap);
+      align-items: stretch;
+    }
+
+    .visual-shot {
+      position: relative;
+      min-height: 540px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--surface);
+      isolation: isolate;
+    }
+
+    .visual-shot.compact {
+      min-height: 258px;
+    }
+
+    .visual-shot img {
+      width: 100%;
+      height: 100%;
+      filter: saturate(0.88) contrast(1.05);
+      transform: scale(1.02);
+      transition: transform 900ms cubic-bezier(0.2, 0.8, 0.2, 1), filter 900ms ease;
+    }
+
+    .visual-shot:hover img {
+      transform: scale(1.055);
+      filter: saturate(0.98) contrast(1.08);
+    }
+
+    .visual-shot::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background:
+        linear-gradient(180deg, transparent 40%, color-mix(in oklch, black 66%, transparent)),
+        radial-gradient(circle at 18% 18%, color-mix(in oklch, var(--accent) 18%, transparent), transparent 28%);
+      pointer-events: none;
+    }
+
+    .visual-caption {
+      position: absolute;
+      inset-inline: 18px;
+      inset-block-end: 18px;
+      z-index: 2;
+      display: grid;
+      gap: 8px;
+      max-width: 520px;
+      padding: 14px;
+      border: 1px solid color-mix(in oklch, var(--fg) 16%, transparent);
+      border-radius: 12px;
+      background: color-mix(in oklch, var(--bg) 66%, transparent);
+      backdrop-filter: blur(14px);
+    }
+
+    .visual-caption strong {
+      color: var(--fg);
+      font-size: 18px;
+      letter-spacing: -0.02em;
+      line-height: 1.12;
+    }
+
+    .visual-caption span {
+      color: color-mix(in oklch, var(--fg) 72%, var(--muted));
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .operation-story {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1px;
+      margin-top: var(--gap);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--border);
+    }
+
+    .operation-story article {
+      min-height: 188px;
+      padding: 22px;
+      background: color-mix(in oklch, var(--surface) 88%, transparent);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .operation-story strong {
+      color: var(--fg);
+      font-size: 21px;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+    }
+
+    .operation-story span {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .founder-section {
+      display: grid;
+      grid-template-columns: minmax(320px, 0.72fr) minmax(0, 1fr);
+      gap: var(--gap);
+      align-items: stretch;
+    }
+
+    .founder-panel {
+      min-height: 620px;
+    }
+
+    .founder-panel img {
+      width: 100%;
+      height: 100%;
+      filter: saturate(0.82) contrast(1.06) brightness(0.82);
+    }
+
+    .founder-copy {
+      max-width: 520px;
+    }
+
+    .founder-copy p {
+      color: color-mix(in oklch, var(--fg) 76%, var(--muted));
+    }
+
+    .founder-content {
+      display: grid;
+      align-content: center;
+      gap: 24px;
+      padding: 36px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background:
+        linear-gradient(135deg, color-mix(in oklch, var(--accent) 12%, transparent), transparent 42%),
+        color-mix(in oklch, var(--surface) 88%, transparent);
+    }
+
+    .founder-content h2 {
+      max-width: 10ch;
+      font-size: clamp(40px, 5.4vw, 74px);
+      line-height: 0.98;
+      letter-spacing: -0.04em;
+    }
+
+    .founder-points {
+      display: grid;
+      gap: 1px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--border);
+    }
+
+    .founder-points article {
+      padding: 18px;
+      background: color-mix(in oklch, var(--bg) 48%, transparent);
+    }
+
+    .founder-points strong {
+      display: block;
+      color: var(--fg);
+      font-size: 16px;
+      letter-spacing: -0.01em;
+    }
+
+    .founder-points span {
+      display: block;
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .faq {
+      display: grid;
+      gap: 1px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--border);
+      overflow: hidden;
+    }
+
+    details {
+      background: color-mix(in oklch, var(--surface) 90%, transparent);
+      padding: 20px 22px;
+    }
+
+    summary {
+      cursor: pointer;
+      color: var(--fg);
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      list-style: none;
+    }
+
+    summary::-webkit-details-marker { display: none; }
+
+    details p {
+      margin-top: 14px;
+      max-width: 72ch;
+    }
+
+    .cta-final {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto 32px;
+      padding: 48px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background:
+        linear-gradient(135deg, color-mix(in oklch, var(--accent) 18%, transparent), transparent 38%),
+        color-mix(in oklch, var(--surface) 92%, transparent);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 28px;
+      align-items: end;
+    }
+
+    .cta-final h2 {
+      max-width: 850px;
+      font-size: clamp(36px, 5vw, 72px);
+      line-height: 0.98;
+      letter-spacing: -0.04em;
+    }
+
+    .cta-final p {
+      max-width: 68ch;
+      margin-top: 18px;
+      font-size: 17px;
+    }
+
+    footer {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+      padding: 28px 0 48px;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      color: var(--muted);
+      font-size: 13px;
+      border-top: 1px solid var(--border);
+    }
+
+    .mobile-only { display: none; }
+
+    .js .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition:
+        opacity 700ms ease,
+        transform 700ms cubic-bezier(0.2, 0.8, 0.2, 1),
+        border-color 220ms ease,
+        background 220ms ease;
+      transition-delay: calc(var(--reveal-index, 0) * 65ms);
+      will-change: opacity, transform;
+    }
+
+    .js .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .js .section-head.reveal {
+      transform: translateY(34px);
+    }
+
+    .js .section-head.reveal.is-visible {
+      transform: translateY(0);
+    }
+
+    .js .photo-card.reveal,
+    .js .hero-meta.reveal {
+      transform: translateY(24px) scale(0.985);
+    }
+
+    .js .photo-card.reveal.is-visible,
+    .js .hero-meta.reveal.is-visible {
+      transform: translateY(0) scale(1);
+    }
+
+    @keyframes heroDrift {
+      0% { transform: scale(1.035) translate3d(-8px, -4px, 0); }
+      100% { transform: scale(1.075) translate3d(10px, 8px, 0); }
+    }
+
+    @keyframes industrialScan {
+      0% { transform: translateX(-48%) skewX(-10deg); opacity: 0; }
+      12% { opacity: 0.34; }
+      55% { opacity: 0.22; }
+      100% { transform: translateX(48%) skewX(-10deg); opacity: 0; }
+    }
+
+    @keyframes railPulse {
+      0%, 100% { opacity: 0.35; transform: scaleX(0.86); }
+      45% { opacity: 0.9; transform: scaleX(1); }
+    }
+
+    @keyframes railMarker {
+      0% { inset-inline-start: 0; opacity: 0; }
+      10% { opacity: 1; }
+      90% { opacity: 1; }
+      100% { inset-inline-start: calc(100% - 9px); opacity: 0; }
+    }
+
+    @keyframes tickerBreath {
+      0%, 100% { transform: translateY(0); border-color: color-mix(in oklch, var(--fg) 15%, transparent); }
+      50% { transform: translateY(-5px); border-color: color-mix(in oklch, var(--accent) 45%, var(--border)); }
+    }
+
+    @keyframes statusBlink {
+      50% { opacity: 0.35; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.001ms !important;
+      }
+
+      .js .reveal,
+      .js .reveal.is-visible {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    @media (max-width: 1040px) {
+      .nav-links { display: none; }
+      .hero {
+        min-height: 100svh;
+      }
+      .hero-stage {
+        position: relative;
+        top: auto;
+        height: calc(100svh - 72px);
+        min-height: 620px;
+      }
+      .hero-info-grid,
+      .section-head,
+      .brand-panel,
+      .materials,
+      .photo-strip,
+      .visual-showcase,
+      .operation-grid,
+      .founder-section,
+      .cta-final {
+        grid-template-columns: 1fr;
+      }
+      .brand-panel .wide { grid-column: auto; }
+      .grid.cols-4, .grid.cols-3, .process, .values, .operation-story, .operation-tiles { grid-template-columns: repeat(2, 1fr); }
+      .service-row, .strategy-list article { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 640px) {
+      .section { padding: 56px 0; }
+      .hero {
+        min-height: 100svh;
+      }
+      .hero-stage {
+        min-height: 620px;
+        height: calc(100svh - 72px);
+      }
+      .hero-meta,
+      .service-chip-grid,
+      .grid.cols-4,
+      .grid.cols-3,
+      .grid.cols-2,
+      .process,
+      .values,
+      .operation-tiles {
+        grid-template-columns: 1fr;
+      }
+      .hero-brand-plate {
+        inset-inline-start: 18px;
+        inset-block-end: 92px;
+        max-width: calc(100% - 36px);
+      }
+      .hero-brand-plate h1 {
+        font-size: clamp(46px, 15vw, 68px);
+      }
+      .hero-hotspot {
+        inline-size: min(280px, calc(100vw - 36px));
+      }
+      .hero-hotspot.one {
+        inset-inline-end: 18px;
+        inset-block-start: 26vh;
+      }
+      .hero-hotspot.two,
+      .hero-hotspot.three {
+        display: none;
+      }
+      .hero-loop .ticker { display: none; }
+      .hero-signal-card {
+        inset-inline: 18px;
+        inset-block-start: 18px;
+        width: auto;
+      }
+      .hero-scroll-cue {
+        inset-inline-start: 18px;
+        inset-inline-end: auto;
+      }
+      .mockup { min-height: 460px; }
+      .mockup .doc-title { font-size: 42px; }
+      .visual-shot,
+      .visual-shot.compact {
+        min-height: 340px;
+      }
+      .video-panel,
+      .video-panel video,
+      .proposal-panel,
+      .founder-panel {
+        min-height: 430px;
+      }
+      .proposal-card {
+        min-height: 360px;
+      }
+      .proposal-logo {
+        width: 148px;
+      }
+      .founder-content {
+        padding: 26px;
+      }
+      .operation-story { grid-template-columns: 1fr; }
+      .cta-final { padding: 30px; }
+      footer { flex-direction: column; }
+      .mobile-only { display: inline; }
+    }
+  </style>
+</head>
+<body>
+  <div class="site-shell">
+    <header class="nav" aria-label="Navegação principal">
+      <div class="nav-inner">
+        <a class="brand-mark" href="#top" aria-label="CenterShip">
+          <img class="brand-logo-image" src="assets/centership-logo-transparent.png" alt="CenterShip">
+        </a>
+        <nav class="nav-links" aria-label="Seções">
+          <a href="#posicionamento">Posicionamento</a>
+          <a href="#servicos">Serviços</a>
+          <a href="#operacao">Operação</a>
+          <a href="#sobre">Sobre</a>
+          <a href="#marca">Identidade</a>
+          <a href="#digital">Estratégia digital</a>
+          <a href="#contato">Contato</a>
+        </nav>
+        <a class="button primary" href="#contato">Solicitar diagnóstico</a>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-stage">
+          <figure class="hero-media" data-od-id="hero">
+            <canvas class="hero-sequence-canvas" width="1440" height="900" aria-hidden="true"></canvas>
+            <video class="hero-video-source" preload="auto" muted playsinline loop aria-hidden="true">
+              <source src="mp4esyyy-WhatsApp-Video-2026-05-13-at-15.22.37-_3_.mp4" type="video/mp4">
+            </video>
+            <img class="hero-fallback" src="mp4ct17f-ChatGPT-Image-13-de-mai.-de-2026_-14_30_03-_1_.png" alt="Elevador industrial em movimento como fundo cinematográfico da CenterShip">
+            <div class="hero-loop" aria-hidden="true">
+              <span class="rail"></span>
+              <span class="ticker"><i></i> Vistoria ativa</span>
+            </div>
+            <div class="hero-signal-card" aria-hidden="true">
+              <span>Sequência técnica</span>
+              <strong>Scroll sincronizado com a operação</strong>
+              <i class="bar"></i>
+            </div>
+          </figure>
+
+          <div class="hero-brand-plate">
+            <span class="eyebrow">CenterShip | Rio de Janeiro</span>
+            <h1 id="hero-title">Controle técnico em movimento.</h1>
+            <p>Role a página para conduzir a abertura. Passe o mouse pelos pontos técnicos para revelar camadas da operação.</p>
+          </div>
+
+          <div class="hero-hotspots" aria-label="Pontos técnicos da operação">
+            <article class="hero-hotspot one" tabindex="0">
+              <strong>Desmontagem controlada</strong>
+              <span>Sequência de retirada planejada para reduzir risco em elevadores, cabos, guias e estruturas auxiliares.</span>
+            </article>
+            <article class="hero-hotspot two" tabindex="0">
+              <strong>Ambiente protegido</strong>
+              <span>Leitura de acesso, isolamento, comunicação com responsáveis e limpeza técnica após execução.</span>
+            </article>
+            <article class="hero-hotspot three" tabindex="0">
+              <strong>Material com destino</strong>
+              <span>Separação de ferragens, componentes e equipamentos com avaliação comercial quando aplicável.</span>
+            </article>
+          </div>
+
+          <div class="hero-scroll-cue" aria-hidden="true">
+            <span>Scroll para controlar</span>
+            <i></i>
+          </div>
+        </div>
+      </section>
+
+      <section class="section hero-info" aria-labelledby="hero-info-title">
+        <div class="hero-info-grid">
+          <div>
+            <span class="eyebrow">Reposicionamento CenterShip</span>
+            <h2 id="hero-info-title">Remoção industrial com controle de risco.</h2>
+            <p class="hero-deck">A CenterShip reposiciona desmontagem, remoção e retirada de materiais ferrosos como um serviço técnico de alta responsabilidade para construtoras, síndicos, engenheiros e administradores.</p>
+            <div class="hero-actions">
+              <a class="button primary" href="#contato">Pedir avaliação do local</a>
+              <a class="button secondary" href="#servicos">Ver escopo técnico</a>
+            </div>
+          </div>
+          <div class="hero-meta" aria-label="Pilares de posicionamento">
+            <div class="metric">
+              <strong>Técnica</strong>
+              <span>Planejamento antes da retirada, com leitura de acesso, carga e descarte.</span>
+            </div>
+            <div class="metric">
+              <strong>Segurança</strong>
+              <span>Comunicação clara para obras, condomínios e áreas industriais em operação.</span>
+            </div>
+            <div class="metric">
+              <strong>Valor</strong>
+              <span>Separação de materiais, compra e venda industrial quando aplicável.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section operation-lab" id="demonstrativo" aria-labelledby="demo-title">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Video demonstrativo</span>
+            <h2 id="demo-title">A operacao real logo abaixo da abertura.</h2>
+          </div>
+          <p>O video enviado vira a prova principal da primeira dobra: mostra ambiente tecnico, retirada, movimentacao e capacidade operacional antes da pagina entrar no posicionamento de marca.</p>
+        </div>
+
+        <div class="operation-grid">
+          <figure class="video-panel">
+            <video controls muted playsinline preload="metadata" poster="mp3oehh7-WhatsApp-Image-2026-05-13-at-03.14.08.jpeg">
+              <source src="mp4h1am0-WhatsApp-Video-2026-05-13-at-03.14.32.mp4" type="video/mp4">
+            </video>
+            <figcaption class="video-overlay">
+              <span class="mono-label">WhatsApp Video 2026-05-13 at 03.14.32</span>
+              <h3>Servico real em elevador, ferragens e ambiente tecnico.</h3>
+              <p>Usado como demonstrativo comercial para reforcar equipe, processo, acesso, desmontagem e limpeza tecnica.</p>
+            </figcaption>
+          </figure>
+
+          <aside class="proposal-panel" aria-label="Sistema comercial CenterShip">
+            <img class="proposal-reference" src="mp4gy9j0-WhatsApp-Image-2026-05-13-at-03.00.50.jpeg" alt="">
+            <div class="proposal-card">
+              <div>
+                <img class="proposal-logo" src="assets/centership-logo-transparent.png" alt="CenterShip">
+                <div class="proposal-lines" aria-hidden="true">
+                  <i></i><i></i><i></i>
+                </div>
+              </div>
+              <div class="proposal-specs">
+                <span><b>Escopo</b> desmontagem, retirada e limpeza tecnica</span>
+                <span><b>Campo</b> elevadores, cabos, guias e materiais ferrosos</span>
+                <span><b>Entrega</b> proposta clara por etapa e condicao</span>
+              </div>
+            </div>
+          </aside>
+        </div>
+
+        <div class="operation-tiles">
+          <article>
+            <span class="mono-label">01 / Vistoria</span>
+            <h3>Leitura do local antes do preco</h3>
+            <p>Acesso, interferencias, volume, risco, equipe necessaria e condicoes de retirada.</p>
+          </article>
+          <article>
+            <span class="mono-label">02 / Desmontagem</span>
+            <h3>Sequencia tecnica de retirada</h3>
+            <p>Elevadores, estruturas metalicas, cabos, bases, guias, maquinas e componentes.</p>
+          </article>
+          <article>
+            <span class="mono-label">03 / Separacao</span>
+            <h3>Materiais com destino definido</h3>
+            <p>Ferragens e equipamentos avaliados para remocao, reaproveitamento, compra ou venda.</p>
+          </article>
+          <article>
+            <span class="mono-label">04 / Entrega</span>
+            <h3>Ambiente liberado e documentado</h3>
+            <p>Fechamento com area organizada, alinhamento com responsavel e proximos passos claros.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="posicionamento">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Posicionamento da marca</span>
+            <h2>De prestador operacional para parceiro técnico de decisão.</h2>
+          </div>
+          <p>A CenterShip deve ser percebida como a empresa que entra quando o cliente precisa retirar, desmontar ou reorganizar infraestrutura pesada sem improviso, sem ruído e sem expor a obra a risco desnecessário.</p>
+        </div>
+
+        <div class="brand-panel">
+          <article>
+            <span class="mono-label">Missão</span>
+            <h3>Executar remoções e desmontagens industriais com método, segurança e clareza comercial.</h3>
+            <p>O papel da marca é transformar operações complexas em decisões administráveis para quem responde por obra, condomínio, manutenção ou patrimônio.</p>
+          </article>
+          <article>
+            <span class="mono-label">Visão</span>
+            <h3>Ser referência regional em retirada técnica de equipamentos, ferragens e estruturas metálicas.</h3>
+            <p>No Rio de Janeiro, a marca pode ocupar o espaço de especialista confiável para serviços que exigem presença de campo e responsabilidade.</p>
+          </article>
+          <article class="wide">
+            <span class="mono-label">Arquétipo e tom de voz</span>
+            <h3>O arquétipo principal é o Governante técnico: controle, responsabilidade, ordem e autoridade sem exagero.</h3>
+            <p>O tom deve ser direto, seguro e corporativo. Frases curtas, verbos de ação, linguagem de engenharia e foco em processo. Evitar promessas genéricas como "melhor preço" e preferir argumentos verificáveis: vistoria, escopo, equipe, acesso, remoção, limpeza e destinação.</p>
+          </article>
+        </div>
+
+        <div class="values" style="margin-top: 24px;">
+          <div class="value"><strong>Segurança</strong><span>Operação planejada para reduzir exposição de pessoas, patrimônio e cronograma.</span></div>
+          <div class="value"><strong>Precisão</strong><span>Leitura técnica do ambiente antes de prometer prazo, custo ou método.</span></div>
+          <div class="value"><strong>Responsabilidade</strong><span>Comunicação clara com síndicos, engenheiros, compras e administradores.</span></div>
+          <div class="value"><strong>Força operacional</strong><span>Capacidade de lidar com equipamentos, ferragens, cabos e estruturas pesadas.</span></div>
+          <div class="value"><strong>Transparência</strong><span>Proposta organizada por escopo, etapas, materiais e condições de execução.</span></div>
+        </div>
+      </section>
+
+      <section class="section" id="servicos">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Escopo comercial</span>
+            <h2>Serviços apresentados como matriz técnica, não como lista solta.</h2>
+          </div>
+          <p>O cliente precisa entender rapidamente o que a CenterShip remove, desmonta, compra, vende e organiza. A linguagem deve facilitar orçamento e qualificação do lead.</p>
+        </div>
+
+        <div class="service-list">
+          <article class="service-row">
+            <span class="num">CS-01</span>
+            <div>
+              <h3>Desmontagem e montagem de elevadores</h3>
+            </div>
+            <p>Retirada controlada de componentes, máquinas, cabos, guias, portas, estruturas auxiliares e materiais relacionados.</p>
+          </article>
+          <article class="service-row">
+            <span class="num">CS-02</span>
+            <div>
+              <h3>Remoção industrial de equipamentos</h3>
+            </div>
+            <p>Desmobilização de máquinas, conjuntos metálicos e ativos técnicos em prédios, obras, galpões e instalações.</p>
+          </article>
+          <article class="service-row">
+            <span class="num">CS-03</span>
+            <div>
+              <h3>Estruturas metálicas, galpões e ferragens</h3>
+            </div>
+            <p>Desmontagem de estruturas, retirada de materiais ferrosos e limpeza técnica após remoção.</p>
+          </article>
+          <article class="service-row">
+            <span class="num">CS-04</span>
+            <div>
+              <h3>Cabeamento e infraestrutura metálica</h3>
+            </div>
+            <p>Remoção de cabos, suportes, trilhos, dutos, bases, tubos e componentes sem uso ou em substituição.</p>
+          </article>
+          <article class="service-row">
+            <span class="num">CS-05</span>
+            <div>
+              <h3>Compra e venda de materiais industriais</h3>
+            </div>
+            <p>Avaliação de materiais e equipamentos com potencial de reaproveitamento, compra, venda ou destinação comercial.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="prova">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Portfólio e prova de campo</span>
+            <h2>A fotografia deve mostrar complexidade real, não obra cenográfica.</h2>
+          </div>
+          <p>As imagens de serviço são um ativo importante: elas comunicam altura, peso, ambiente técnico e presença operacional. O tratamento visual deve ser limpo, contrastado e documental.</p>
+        </div>
+
+        <div class="photo-strip">
+          <figure class="photo-card">
+            <img src="mp3oehh7-WhatsApp-Image-2026-05-13-at-03.14.08.jpeg" alt="Equipamento industrial e equipe durante desmontagem em área técnica">
+            <figcaption class="caption">Remoção em área técnica com máquinas, cabos e estrutura superior exposta.</figcaption>
+          </figure>
+          <div class="grid">
+            <figure class="photo-card small">
+              <img src="mp3oehsx-WhatsApp-Image-2026-05-13-at-03.12.42.jpeg" alt="Área industrial com estruturas e material de obra">
+              <figcaption class="caption">Leitura de acesso, área de trabalho e materiais.</figcaption>
+            </figure>
+            <figure class="photo-card small">
+              <img src="mp3oeh8s-WhatsApp-Image-2026-05-13-at-03.19.45.jpeg" alt="Detalhe de ferragens e infraestrutura removida">
+              <figcaption class="caption">Ferragens, cabos e componentes de infraestrutura.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="section visual-suite" id="operacao">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Nova linguagem visual</span>
+            <h2>Imagens premium para serviços, diferenciais e páginas internas.</h2>
+          </div>
+          <p>Os novos blocos mantêm a mesma atmosfera cinematográfica da hero: grafite, metal, luz âmbar, tecnologia discreta e equipe técnica como prova de capacidade operacional.</p>
+        </div>
+
+        <div class="visual-showcase">
+          <figure class="visual-shot">
+            <img src="assets/centership-warehouse-operation.jpg" alt="Equipe CenterShip em galpão industrial premium organizando operação de desmontagem e remoção">
+            <figcaption class="visual-caption">
+              <strong>Galpão, logística e bastidor operacional</strong>
+              <span>Imagem indicada para banners de infraestrutura, capacidade de campo e apresentação institucional.</span>
+            </figcaption>
+          </figure>
+          <div class="grid">
+            <figure class="visual-shot compact">
+              <img src="assets/centership-elevator-service.jpg" alt="Técnicos CenterShip em ambiente de elevador e remoção controlada de componentes">
+              <figcaption class="visual-caption">
+                <strong>Serviço técnico em elevadores</strong>
+                <span>Para cards de desmontagem, montagem, cabos, guias e equipamentos.</span>
+              </figcaption>
+            </figure>
+            <figure class="visual-shot compact">
+              <img src="assets/centership-corporate-operations.jpg" alt="Atendimento corporativo CenterShip revisando plano técnico em instalação industrial moderna">
+              <figcaption class="visual-caption">
+                <strong>Atendimento e planejamento</strong>
+                <span>Para diferenciais, autoridade, propostas e relacionamento com engenharia.</span>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="operation-story">
+          <article><span class="mono-label">Uso 01</span><strong>Background de seção</strong><span>Aplicar com overlay escuro e texto curto para manter legibilidade em desktop e mobile.</span></article>
+          <article><span class="mono-label">Uso 02</span><strong>Cards de serviço</strong><span>Usar recortes fechados para comunicar operação real, equipe e equipamento sem parecer banco de imagem.</span></article>
+          <article><span class="mono-label">Uso 03</span><strong>Proposta comercial</strong><span>Levar a mesma fotografia para capa, apresentação institucional e redes sociais.</span></article>
+        </div>
+      </section>
+
+      <section class="section" id="marca">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Identidade visual completa</span>
+            <h2>Industrial premium: robusta, técnica e corporativa.</h2>
+          </div>
+          <p>A identidade deve preservar reconhecimento do nome CenterShip, mas elevar o sistema: menos ornamento, mais grade, mais contraste, mais confiança.</p>
+        </div>
+
+        <div class="grid cols-3">
+          <article class="card">
+            <span class="mono-label">Logotipo</span>
+            <h3>Modernização sem excesso</h3>
+            <p>Recomenda-se manter a força do nome CenterShip, simplificar símbolo e seta em uma marca técnica, reduzir elementos redundantes e criar versões horizontal, vertical e monocromática.</p>
+          </article>
+          <article class="card">
+            <span class="mono-label">Paleta</span>
+            <h3>Grafite, aço e âmbar</h3>
+            <p>Grafite para autoridade, aço para precisão, concreto para base operacional e âmbar como sinal de atenção, energia e movimento técnico.</p>
+          </article>
+          <article class="card">
+            <span class="mono-label">Tipografia</span>
+            <h3>Sans técnica com números fortes</h3>
+            <p>Inter ou equivalente corporativa para clareza. Monoespaçada apenas em códigos de serviço, etapas, medições, rótulos e proposta comercial.</p>
+          </article>
+        </div>
+
+        <div class="quote-band" data-od-id="pull-quote">
+          <p>CenterShip não vende "retirada". Vende controle técnico sobre ambientes onde improviso custa caro.</p>
+        </div>
+
+        <div class="grid cols-4" style="margin-top: 24px;">
+          <article class="card tight">
+            <span class="mono-label">Ícones</span>
+            <p>Traço linear, industrial, sem ilustrações simpáticas. Usar pictogramas de eixo, gancho, viga, cabo, caminhão e checklist.</p>
+          </article>
+          <article class="card tight">
+            <span class="mono-label">Padrões</span>
+            <p>Grades técnicas, linhas de corte, coordenadas, blocos de processo e marcações de inspeção.</p>
+          </article>
+          <article class="card tight">
+            <span class="mono-label">Fotografia</span>
+            <p>Ambiente real, equipe, máquinas, metal, concreto e antes/depois. Evitar banco de imagem genérico.</p>
+          </article>
+          <article class="card tight">
+            <span class="mono-label">Aplicações</span>
+            <p>Proposta, uniforme, capacete, fachada, assinatura, apresentação e redes sociais com o mesmo sistema.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="metodo">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Método de execução</span>
+            <h2>O processo é o principal argumento de confiança.</h2>
+          </div>
+          <p>Para clientes técnicos, uma boa landing precisa vender previsibilidade. A CenterShip deve mostrar etapas antes de falar em preço.</p>
+        </div>
+
+        <div class="process">
+          <article>
+            <div>
+              <h3>Vistoria e escopo</h3>
+              <p>Identificação do equipamento, área de acesso, risco, volume de material e interferências.</p>
+            </div>
+          </article>
+          <article>
+            <div>
+              <h3>Plano de retirada</h3>
+              <p>Definição de equipe, ferramentas, sequência de desmontagem, carga, isolamento e comunicação.</p>
+            </div>
+          </article>
+          <article>
+            <div>
+              <h3>Execução técnica</h3>
+              <p>Desmontagem, remoção, separação de material, limpeza da área e acompanhamento do responsável.</p>
+            </div>
+          </article>
+          <article>
+            <div>
+              <h3>Fechamento</h3>
+              <p>Registro da entrega, alinhamento de destinação e proposta para materiais com valor comercial.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="corporativo">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Materiais corporativos</span>
+            <h2>Um sistema para proposta, obra e presença institucional.</h2>
+          </div>
+          <p>Reposicionar a marca exige que a linguagem visual apareça nos pontos de contato em que o cliente decide confiança: proposta, visita técnica, assinatura, uniforme e apresentação.</p>
+        </div>
+
+        <div class="materials">
+          <div class="mockup" aria-label="Mockup de proposta comercial CenterShip">
+            <div class="topline">
+              <span class="cs">CenterShip</span>
+              <span style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;">Proposta técnica</span>
+            </div>
+            <div class="doc-title">Remoção industrial programada</div>
+            <div class="mockup-lines" aria-hidden="true">
+              <span></span><span></span><span></span>
+            </div>
+          </div>
+          <div class="grid cols-2">
+            <article class="card">
+              <span class="mono-label">Papel timbrado</span>
+              <h3>Cabeçalho discreto, rodapé técnico</h3>
+              <p>Logo no topo, dados legais no rodapé, linha âmbar mínima e área limpa para escopo, condições e assinatura.</p>
+            </article>
+            <article class="card">
+              <span class="mono-label">Propostas comerciais</span>
+              <h3>Orçamento com leitura de risco</h3>
+              <p>Separar escopo, exclusões, prazo, acesso, equipe, materiais, destinação e condições de pagamento.</p>
+            </article>
+            <article class="card">
+              <span class="mono-label">Uniformes e EPI</span>
+              <h3>Presença de campo consistente</h3>
+              <p>Camisa grafite, marca clara no peito, identificação de função e aplicação em capacete quando permitido.</p>
+            </article>
+            <article class="card">
+              <span class="mono-label">Redes sociais</span>
+              <h3>Prova antes de propaganda</h3>
+              <p>Posts com antes/depois, bastidores de segurança, checklist de síndico, explicação de materiais e cases regionais.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="digital">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Estratégia digital</span>
+            <h2>Captar demanda regional com autoridade técnica.</h2>
+          </div>
+          <p>A presença digital deve organizar procura local por remoção, desmontagem, elevadores, ferragens e compra de materiais industriais no Rio de Janeiro.</p>
+        </div>
+
+        <div class="strategy-list">
+          <article>
+            <h3>SEO local</h3>
+            <p>Criar páginas e blocos para "desmontagem de elevador no Rio de Janeiro", "remoção industrial RJ", "retirada de estrutura metálica", "compra de material ferroso" e bairros/regiões atendidas.</p>
+          </article>
+          <article>
+            <h3>Google Meu Negócio</h3>
+            <p>Publicar fotos reais de operação, categorias corretas, serviços separados, perguntas frequentes e posts semanais com obras executadas, sempre usando CenterShip.</p>
+          </article>
+          <article>
+            <h3>Captação de leads</h3>
+            <p>Formulário curto: tipo de serviço, local, fotos do ambiente, urgência e responsável. CTA principal para diagnóstico por WhatsApp quando o número for definido.</p>
+          </article>
+          <article>
+            <h3>Autoridade setorial</h3>
+            <p>Conteúdo técnico sobre preparação de área, remoção segura, reaproveitamento de materiais, riscos de desmontagem informal e checklist para condomínios e construtoras.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="sobre">
+        <div class="founder-section">
+          <figure class="founder-panel">
+            <img src="mp4gxwi5-Proprietário-Flávio-Luiz.jpeg" alt="Flavio Luiz, fundador da CenterShip">
+            <figcaption class="founder-copy">
+              <span class="mono-label">Fundador</span>
+              <h3>Flavio Luiz</h3>
+              <p>Presenca de campo, leitura tecnica e relacionamento direto com responsaveis por obras, condominios e instalacoes industriais.</p>
+            </figcaption>
+          </figure>
+          <div class="founder-content">
+            <div>
+              <span class="eyebrow">Sobre nos</span>
+              <h2>Uma marca tecnica com lideranca visivel.</h2>
+            </div>
+            <p>A CenterShip ganha mais confianca quando conecta sua operacao industrial a uma lideranca real. A imagem do fundador funciona melhor nesta area institucional, depois que o visitante ja viu a hero, os servicos e o demonstrativo de campo.</p>
+            <div class="founder-points">
+              <article><strong>Autoridade operacional</strong><span>O discurso da marca parte da pratica: avaliar, planejar, desmontar, retirar e entregar a area organizada.</span></article>
+              <article><strong>Atendimento consultivo</strong><span>Para construtoras, sindicos e engenheiros, a venda comeca pela leitura correta do problema.</span></article>
+              <article><strong>Confiança regional</strong><span>O foco no Rio de Janeiro permite construir reputacao local com fotos reais, video de campo e casos documentados.</span></article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="depoimentos">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Depoimentos e confiança</span>
+            <h2>Use validação real, sem frases fabricadas.</h2>
+          </div>
+          <p>Até coletar depoimentos autorizados, a landing pode usar blocos de prova documental: fotos, tipos de cliente, responsáveis atendidos e registros de entrega.</p>
+        </div>
+
+        <div class="grid cols-3">
+          <article class="card">
+            <span class="mono-label">Depoimento a coletar</span>
+            <h3>Construtora ou engenheiro responsável</h3>
+            <p>"O que deve aparecer aqui: cumprimento de prazo, organização da área e comunicação com a obra."</p>
+          </article>
+          <article class="card">
+            <span class="mono-label">Depoimento a coletar</span>
+            <h3>Síndico ou administrador</h3>
+            <p>"O que deve aparecer aqui: segurança para moradores, limpeza posterior e clareza antes da execução."</p>
+          </article>
+          <article class="card">
+            <span class="mono-label">Depoimento a coletar</span>
+            <h3>Compras ou patrimônio</h3>
+            <p>"O que deve aparecer aqui: avaliação de materiais, documentação do escopo e negociação objetiva."</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="faq">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">FAQ comercial</span>
+            <h2>Perguntas que reduzem atrito antes do orçamento.</h2>
+          </div>
+          <p>Essas respostas devem ser mantidas curtas e orientadas para ação. A meta é levar o visitante à vistoria ou envio de fotos.</p>
+        </div>
+
+        <div class="faq">
+          <details open>
+            <summary>A CenterShip atende condomínios e obras em operação?</summary>
+            <p>Sim. A comunicação deve ser alinhada com responsável técnico, administração ou síndico para definir horários, acesso, isolamento e sequência da retirada.</p>
+          </details>
+          <details>
+            <summary>É possível avaliar materiais ferrosos ou equipamentos retirados?</summary>
+            <p>Sim. Quando houver potencial comercial, a avaliação de materiais pode entrar no escopo de compra, venda ou destinação, conforme condição e volume.</p>
+          </details>
+          <details>
+            <summary>Como solicitar orçamento?</summary>
+            <p>O ideal é enviar local, fotos, tipo de material ou equipamento, acesso disponível e urgência. A CenterShip deve responder com necessidade de vistoria ou pré-escopo.</p>
+          </details>
+          <details>
+            <summary>A marca deve continuar usando o foco em elevadores?</summary>
+            <p>Elevadores continuam sendo um serviço importante, mas a nova marca deve comunicar um território mais amplo: remoção técnica, estruturas metálicas e materiais industriais.</p>
+          </details>
+        </div>
+      </section>
+
+      <section class="cta-final" id="contato">
+        <div>
+          <span class="eyebrow">Próximo passo</span>
+          <h2>Transformar a operação da CenterShip em uma presença comercial de alto padrão.</h2>
+          <p>Próximas informações a inserir: WhatsApp comercial, endereço, CNPJ, regiões/bairros atendidos, credenciais, depoimentos reais e fotos selecionadas de antes/depois.</p>
+        </div>
+        <a class="button primary" href="#contato">Inserir WhatsApp comercial</a>
+      </section>
+    </main>
+
+    <footer>
+      <span>CenterShip | Remoção técnica, desmontagem industrial e materiais ferrosos</span>
+      <span>Rio de Janeiro</span>
+    </footer>
+  </div>
+  <script>
+    (function () {
+      const root = document.documentElement;
+      root.classList.add('js');
+
+      const motionAllowed = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const revealSelectors = [
+        '.section-head',
+        '.hero-info-grid > div',
+        '.hero-meta',
+        '.brand-panel > article',
+        '.value',
+        '.service-row',
+        '.photo-card',
+        '.video-panel',
+        '.proposal-panel',
+        '.operation-tiles article',
+        '.visual-shot',
+        '.operation-story article',
+        '.founder-panel',
+        '.founder-content',
+        '.card',
+        '.process article',
+        '.strategy-list article',
+        '.faq details',
+        '.cta-final'
+      ];
+
+      const revealItems = Array.from(document.querySelectorAll(revealSelectors.join(',')));
+      revealItems.forEach((item, index) => {
+        item.classList.add('reveal');
+        item.style.setProperty('--reveal-index', index % 6);
+      });
+
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.16, rootMargin: '0px 0px -8% 0px' });
+
+        revealItems.forEach((item) => observer.observe(item));
+      } else {
+        revealItems.forEach((item) => item.classList.add('is-visible'));
+      }
+
+      const hero = document.querySelector('.hero-media');
+      const heroSection = document.querySelector('.hero');
+      const sequenceCanvas = document.querySelector('.hero-sequence-canvas');
+      const heroVideo = document.querySelector('.hero-video-source');
+      const frameCount = 120;
+      const scrollDistance = 4000;
+      const scrub = 1.2;
+      let sequenceContext = null;
+      let renderedFrame = -1;
+      let targetProgress = 0;
+      let easedProgress = 0;
+      let idleSequenceRaf = 0;
+      let scrubRaf = 0;
+      let ticking = false;
+
+      function clamp(value, min, max) {
+        return Math.min(max, Math.max(min, value));
+      }
+
+      function drawVideoCover() {
+        if (!sequenceCanvas || !sequenceContext || !hero || !heroVideo || heroVideo.readyState < 2) return;
+        const width = sequenceCanvas.width;
+        const height = sequenceCanvas.height;
+        const canvasRatio = width / height;
+        const sourceWidth = heroVideo.videoWidth || 16;
+        const sourceHeight = heroVideo.videoHeight || 9;
+        const imageRatio = sourceWidth / sourceHeight;
+        let drawWidth = width;
+        let drawHeight = height;
+        let offsetX = 0;
+        let offsetY = 0;
+
+        if (imageRatio > canvasRatio) {
+          drawHeight = height;
+          drawWidth = drawHeight * imageRatio;
+          offsetX = (width - drawWidth) / 2;
+        } else {
+          drawWidth = width;
+          drawHeight = drawWidth / imageRatio;
+          offsetY = (height - drawHeight) / 2;
+        }
+
+        sequenceContext.clearRect(0, 0, width, height);
+        sequenceContext.drawImage(heroVideo, offsetX, offsetY, drawWidth, drawHeight);
+      }
+
+      function renderSequenceFrame(frameIndex) {
+        if (!heroVideo || !Number.isFinite(heroVideo.duration) || heroVideo.duration <= 0) return;
+        const safeFrame = clamp(frameIndex, 0, frameCount - 1);
+        const progress = frameCount > 1 ? safeFrame / (frameCount - 1) : 0;
+        const duration = Math.max(0.001, heroVideo.duration - 0.035);
+        const time = clamp(progress * duration, 0, duration);
+
+        renderedFrame = safeFrame;
+        if (Math.abs(heroVideo.currentTime - time) > 0.025) {
+          try {
+            heroVideo.currentTime = time;
+          } catch (error) {
+            return;
+          }
+        }
+        drawVideoCover();
+        document.body.style.setProperty('--sequence-progress', progress.toFixed(4));
+      }
+
+      function resizeSequenceCanvas() {
+        if (!sequenceCanvas || !hero) return;
+        const rect = hero.getBoundingClientRect();
+        const dpr = Math.min(2, window.devicePixelRatio || 1);
+        sequenceCanvas.width = Math.max(1, Math.round(rect.width * dpr));
+        sequenceCanvas.height = Math.max(1, Math.round(rect.height * dpr));
+        if (renderedFrame >= 0) drawVideoCover();
+      }
+
+      function getHeroSequenceProgress() {
+        if (!heroSection) return 0;
+        const rect = heroSection.getBoundingClientRect();
+        return clamp((0 - rect.top) / scrollDistance, 0, 1);
+      }
+
+      function updateSequenceByScroll() {
+        if (!sequenceCanvas || !heroVideo || !motionAllowed) return;
+        targetProgress = getHeroSequenceProgress();
+        if (!scrubRaf) scrubRaf = window.requestAnimationFrame(runScrubSequence);
+      }
+
+      function runScrubSequence() {
+        scrubRaf = 0;
+        if (!heroVideo || !motionAllowed) return;
+        const alpha = 1 / (scrub * 18);
+        easedProgress += (targetProgress - easedProgress) * alpha;
+        if (Math.abs(targetProgress - easedProgress) < 0.001) easedProgress = targetProgress;
+        const frame = Math.round(easedProgress * (frameCount - 1));
+        renderSequenceFrame(frame);
+        if (Math.abs(targetProgress - easedProgress) > 0.001) {
+          scrubRaf = window.requestAnimationFrame(runScrubSequence);
+        }
+      }
+
+      function runIdleSequence() {
+        if (!motionAllowed || !heroVideo || window.scrollY > 12) return;
+        drawVideoCover();
+        idleSequenceRaf = window.requestAnimationFrame(runIdleSequence);
+      }
+
+      if (sequenceCanvas && heroVideo) {
+        sequenceContext = sequenceCanvas.getContext('2d');
+        heroVideo.addEventListener('loadedmetadata', () => {
+          resizeSequenceCanvas();
+          renderSequenceFrame(0);
+          if (hero) hero.classList.add('sequence-ready');
+          if (motionAllowed) {
+            heroVideo.play().catch(() => {});
+            idleSequenceRaf = window.requestAnimationFrame(runIdleSequence);
+          }
+        }, { once: true });
+
+        heroVideo.addEventListener('seeked', drawVideoCover);
+        heroVideo.addEventListener('loadeddata', drawVideoCover);
+        heroVideo.addEventListener('timeupdate', () => {
+          if (window.scrollY <= 12) drawVideoCover();
+        });
+      }
+
+      function updateScrollProgress() {
+        const maxScroll = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+        document.body.style.setProperty('--scroll-progress', (window.scrollY / maxScroll).toFixed(4));
+        if (idleSequenceRaf && window.scrollY > 12) {
+          window.cancelAnimationFrame(idleSequenceRaf);
+          idleSequenceRaf = 0;
+          if (heroVideo) heroVideo.pause();
+        }
+        updateSequenceByScroll();
+        ticking = false;
+      }
+
+      function requestTick() {
+        if (!ticking) {
+          window.requestAnimationFrame(updateScrollProgress);
+          ticking = true;
+        }
+      }
+
+      updateScrollProgress();
+      window.addEventListener('scroll', requestTick, { passive: true });
+      window.addEventListener('resize', () => {
+        resizeSequenceCanvas();
+        requestTick();
+      });
+
+      if (hero && motionAllowed) {
+        hero.addEventListener('pointermove', (event) => {
+          const rect = hero.getBoundingClientRect();
+          const x = ((event.clientX - rect.left) / rect.width) * 100;
+          const y = ((event.clientY - rect.top) / rect.height) * 100;
+          document.body.style.setProperty('--hero-x', `${x.toFixed(1)}%`);
+          document.body.style.setProperty('--hero-y', `${y.toFixed(1)}%`);
+        });
+
+        hero.addEventListener('pointerleave', () => {
+          document.body.style.setProperty('--hero-x', '50%');
+          document.body.style.setProperty('--hero-y', '38%');
+        });
+      }
+    }());
+  </script>
+</body>
+</html>
