@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "kind": "html",
+  "title": "CenterShip Landing Page",
+  "entry": "centership-landing.html",
+  "renderer": "html",
+  "status": "complete",
+  "exports": [
+    "html",
+    "pdf",
+    "zip"
+  ],
+  "createdAt": "2026-05-13T16:51:30.991Z",
+  "updatedAt": "2026-05-13T16:51:31.176Z",
+  "sourceSkillId": "blog-post",
+  "designSystemId": "default",
+  "metadata": {
+    "identifier": "centership-landing",
+    "artifactType": "text/html",
+    "inferred": false
+  }
+}
