@@ -748,44 +748,98 @@
 
     .proposal-panel {
       min-height: 620px;
-      display: grid;
-      align-content: end;
-      padding: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
     }
 
-    .proposal-panel .proposal-reference {
+    /* video BG replaces the blurred static image */
+    .proposal-panel .proposal-video-bg {
       position: absolute;
-      inset: -18px;
-      width: calc(100% + 36px);
-      height: calc(100% + 36px);
+      inset: 0;
+      width: 100%;
+      height: 100%;
       object-fit: cover;
-      object-position: 54% 48%;
-      filter: blur(6px) saturate(0.45) contrast(1.08) brightness(0.44);
-      transform: scale(1.06);
-      opacity: 0.5;
+      object-position: center;
+      filter: saturate(0.55) contrast(1.1) brightness(0.55);
+      z-index: 0;
     }
 
+    /* dark cinematic overlay */
+    .proposal-panel::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background:
+        linear-gradient(160deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.18) 50%, rgba(0,0,0,0.62) 100%),
+        radial-gradient(ellipse at 30% 20%, rgba(180,130,30,0.10) 0%, transparent 55%);
+      pointer-events: none;
+    }
+
+    /* fade bottom into page */
+    .proposal-panel::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background:
+        linear-gradient(180deg, transparent 45%, rgba(0,0,0,0.70) 100%),
+        radial-gradient(circle at 20% 20%, color-mix(in oklch, var(--accent) 10%, transparent), transparent 30%);
+      pointer-events: none;
+    }
+
+    /* ── GLASS CARD ── */
     .proposal-card {
       position: relative;
       z-index: 2;
-      min-height: 410px;
-      padding: 22px;
-      border: 1px solid color-mix(in oklch, var(--fg) 16%, transparent);
-      border-radius: 14px;
-      background:
-        linear-gradient(135deg, color-mix(in oklch, var(--surface) 78%, transparent), color-mix(in oklch, var(--bg) 70%, transparent)),
-        color-mix(in oklch, var(--surface) 92%, transparent);
-      backdrop-filter: blur(18px);
+      width: 100%;
+      max-width: 300px;
+      padding: 22px 20px 18px;
+      border-radius: 16px;
+      background: rgba(12, 12, 12, 0.38);
+      backdrop-filter: blur(18px) saturate(1.4);
+      -webkit-backdrop-filter: blur(18px) saturate(1.4);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      box-shadow:
+        0 0 0 0.5px rgba(255,255,255,0.04) inset,
+        0 2px 32px rgba(0,0,0,0.55),
+        0 1px 0 rgba(255,255,255,0.06) inset;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      gap: 16px;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .proposal-card:hover {
+      border-color: rgba(255,255,255,0.12);
+      box-shadow:
+        0 0 0 0.5px rgba(255,255,255,0.06) inset,
+        0 4px 48px rgba(0,0,0,0.65),
+        0 1px 0 rgba(255,255,255,0.08) inset,
+        0 0 24px rgba(180,130,30,0.08);
+    }
+
+    /* thin top highlight line on glass */
+    .proposal-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 12%;
+      right: 12%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent);
+      border-radius: 999px;
+      pointer-events: none;
     }
 
     .proposal-logo {
-      width: 180px;
+      width: 130px;
       height: auto;
       object-fit: contain;
-      filter: drop-shadow(0 10px 24px rgb(0 0 0 / 0.35));
+      filter: drop-shadow(0 4px 14px rgba(0,0,0,0.55));
+      opacity: 0.92;
     }
 
     .proposal-lines {
@@ -1970,14 +2024,21 @@
           </figure>
 
           <aside class="proposal-panel" aria-label="Sistema comercial CenterShip">
-            <img class="proposal-reference" src="mp4gy9j0-WhatsApp-Image-2026-05-13-at-03.00.50.jpeg" alt="">
+            <!-- VIDEO BACKGROUND -->
+            <video
+              class="proposal-video-bg"
+              src="mp4h1am0-WhatsApp-Video-2026-05-13-at-03.14.32.mp4"
+              autoplay
+              loop
+              muted
+              playsinline
+              preload="auto"
+              aria-hidden="true"
+            ></video>
+
+            <!-- GLASS CARD -->
             <div class="proposal-card">
-              <div>
-                <img class="proposal-logo" src="assets/centership-logo-transparent.png" alt="CenterShip">
-                <div class="proposal-lines" aria-hidden="true">
-                  <i></i><i></i><i></i>
-                </div>
-              </div>
+              <img class="proposal-logo" src="assets/centership-logo-transparent.png" alt="CenterShip">
               <div class="proposal-specs">
                 <span><b>Escopo</b> desmontagem, retirada e limpeza tecnica</span>
                 <span><b>Campo</b> elevadores, cabos, guias e materiais ferrosos</span>
