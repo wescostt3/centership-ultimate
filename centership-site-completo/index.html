@@ -379,48 +379,11 @@
       transition: background 180ms ease;
     }
 
-    .hero-media::before {
-      content: "";
-      position: absolute;
-      inset: -20%;
-      z-index: 2;
-      background:
-        linear-gradient(105deg, transparent 0 42%, color-mix(in oklch, var(--accent) 52%, transparent) 48%, transparent 54%),
-        repeating-linear-gradient(90deg, transparent 0 58px, color-mix(in oklch, var(--fg) 9%, transparent) 59px 60px);
-      mix-blend-mode: screen;
-      opacity: 0.28;
-      transform: translateX(-42%) rotate(0.001deg);
-      animation: industrialScan 5.8s cubic-bezier(0.55, 0, 0.25, 1) infinite;
-      pointer-events: none;
-    }
-
     .hero-loop {
       position: absolute;
       inset: 26px;
       z-index: 3;
       pointer-events: none;
-    }
-
-    .hero-loop .rail {
-      position: absolute;
-      inset-inline: 6%;
-      inset-block-start: 16%;
-      height: 1px;
-      background: color-mix(in oklch, var(--accent) 62%, transparent);
-      transform-origin: center;
-      animation: railPulse 3.6s ease-in-out infinite;
-    }
-
-    .hero-loop .rail::after {
-      content: "";
-      position: absolute;
-      inset-block-start: -4px;
-      inline-size: 9px;
-      block-size: 9px;
-      border-radius: 50%;
-      background: var(--accent);
-      box-shadow: 0 0 18px color-mix(in oklch, var(--accent) 70%, transparent);
-      animation: railMarker 3.6s linear infinite;
     }
 
     .hero-loop .ticker {
@@ -1569,25 +1532,6 @@
       100% { transform: scale(1.075) translate3d(10px, 8px, 0); }
     }
 
-    @keyframes industrialScan {
-      0% { transform: translateX(-48%) skewX(-10deg); opacity: 0; }
-      12% { opacity: 0.34; }
-      55% { opacity: 0.22; }
-      100% { transform: translateX(48%) skewX(-10deg); opacity: 0; }
-    }
-
-    @keyframes railPulse {
-      0%, 100% { opacity: 0.35; transform: scaleX(0.86); }
-      45% { opacity: 0.9; transform: scaleX(1); }
-    }
-
-    @keyframes railMarker {
-      0% { inset-inline-start: 0; opacity: 0; }
-      10% { opacity: 1; }
-      90% { opacity: 1; }
-      100% { inset-inline-start: calc(100% - 9px); opacity: 0; }
-    }
-
     @keyframes tickerBreath {
       0%, 100% { transform: translateY(0); border-color: color-mix(in oklch, var(--fg) 15%, transparent); }
       50% { transform: translateY(-5px); border-color: color-mix(in oklch, var(--accent) 45%, var(--border)); }
@@ -1723,9 +1667,6 @@
           linear-gradient(180deg, color-mix(in oklch, black 12%, transparent), transparent 30%, color-mix(in oklch, black 80%, transparent)),
           linear-gradient(90deg, color-mix(in oklch, black 58%, transparent), color-mix(in oklch, black 24%, transparent));
       }
-      .hero-media::before {
-        opacity: 0.18;
-      }
       .hero-meta,
       .service-chip-grid,
       .grid.cols-4,
@@ -1790,11 +1731,6 @@
         inset: 18px;
       }
       .hero-loop .ticker { display: none; }
-      .hero-loop .rail {
-        inset-inline: 0;
-        inset-block-start: 13%;
-        opacity: 0.48;
-      }
       .hero-info h2 {
         max-width: 10.5ch;
         font-size: clamp(38px, 12vw, 54px);
@@ -1948,7 +1884,6 @@
               <source src="mp4k1ad8-WhatsApp-Video-2026-05-13-at-15.22.37-_3_.mp4" type="video/mp4">
             </video>
             <div class="hero-loop" aria-hidden="true">
-              <span class="rail"></span>
               <span class="ticker"><i></i> Diagnóstico ativo</span>
             </div>
 </figure>
